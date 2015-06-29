@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 Esteban Torres. All rights reserved.
 //
 
+// Native Frameworks
 import UIKit
+
+// Misc.
 import HexColors
+
+// Network
 import SDWebImage
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -32,8 +37,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         membersViewModel.updateContentSignal.deliverOnMainThread().subscribeNext({ [unowned self] members in
             self.collectionView.reloadData()
-            }, error: { error in
-                // TODO: Show error to the user
+            }, error: { [unowned self] error in
+                let alertController = UIAlertController(title: "Unable to fetch members", message: error?.description, preferredStyle: .Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                    alertController.dismissViewControllerAnimated(true, completion: nil)
+                })
+                alertController.addAction(ok)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
                 println("• Unable to load members: \(error)")
         })
         
