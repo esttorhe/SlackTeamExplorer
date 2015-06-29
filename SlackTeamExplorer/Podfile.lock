@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (1.2.3)
+  - HexColors (2.2.1)
+  - Keys (1.0.0)
+  - Moya (1.1.1):
+    - Moya/Core (= 1.1.1)
+  - Moya/Core (1.1.1):
+    - Alamofire (~> 1.2.0)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+
+DEPENDENCIES:
+  - HexColors (~> 2.2.1)
+  - Keys (from `Pods/CocoaPodsKeys`)
+  - Moya (~> 1.1)
+  - SDWebImage (~> 3.7.2)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
+SPEC CHECKSUMS:
+  Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
+  Moya: ee0c8da3abb87f2a46bce384bd42ca13260e690e
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+
+COCOAPODS: 0.37.2

@@ -1,0 +1,22 @@
+platform :ios, '8.0'
+use_frameworks!
+
+def pods
+  pod 'Moya', '~> 1.1'
+  pod 'HexColors', '~> 2.2.1'
+end
+
+target 'SlackTeamExplorer' do
+  pods
+  pod 'SDWebImage', '~> 3.7.2'
+end
+
+target 'SlackTeamExplorerTests' do
+
+end
+
+plugin 'cocoapods-keys', {
+	:project => "SlackTeamExplorer",
+	:keys => [
+	"SlackToken"
+	]}

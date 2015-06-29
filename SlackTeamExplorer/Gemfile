@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+# The Cocoa library package manager.
+gem 'cocoapods'
+
+# CocoaPods Keys will store sensitive data in your Mac's keychain.
+gem 'cocoapods-keys'
+
+# Label labels the gems in your Gemfile
+gem 'label'
