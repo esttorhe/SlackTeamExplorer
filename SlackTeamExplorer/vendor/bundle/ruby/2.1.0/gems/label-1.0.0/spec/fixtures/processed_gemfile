@@ -1,0 +1,42 @@
+source 'https://rubygems.org'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
+
+# Authentication
+gem 'devise'
+
+# Upload files in your Ruby applications, map them to a range of ORMs, store them on
+# different backends.
+gem 'carrierwave'
+
+# Nokogiri (é¸) is an HTML, XML, SAX, and Reader parser.
+gem 'nokogiri'
+# Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/].
+gem 'pg'
+
+group :production do
+  # \Unicorn is an HTTP server for Rack applications designed to only serve fast clients
+  # on low-latency, high-bandwidth connections and take advantage of features in
+  # Unix/Unix-like kernels.
+  gem 'unicorn'
+end
+
+group :test do
+  # BDD for Ruby
+  gem 'rspec'
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard'
+end
+
+group :development do
+  # Label labels the gems in your Gemfile
+  gem 'label', path: './'
+  # An IRB alternative and runtime developer console
+  gem 'pry', github: 'pry/pry', branch: 'development'
+end
+
+group :development, :test do
+  # Rspec for Rails
+  gem 'rspec-rails', '~> 3.0.0.beta2'
+end

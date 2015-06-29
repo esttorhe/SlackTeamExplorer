@@ -1,0 +1,10 @@
+/Users/creegan/.rubies/ruby-2.1.3/bin/ruby -r ./siteconf20150629-62231-owywke.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make[1]: Nothing to be done for `all'.
+
+make "DESTDIR=" install
+installing default libraries

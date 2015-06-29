@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "label"
+
+if ARGV.any?
+  Label.label ARGV.first
+else
+  Label.label
+end

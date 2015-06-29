@@ -1,0 +1,3 @@
+language: objective-c
+install: bundle install --deployment
+script: bundle exec rake spec

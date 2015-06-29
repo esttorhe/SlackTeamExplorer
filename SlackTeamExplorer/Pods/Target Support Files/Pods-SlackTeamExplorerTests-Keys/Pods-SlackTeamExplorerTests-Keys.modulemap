@@ -1,0 +1,6 @@
+framework module Keys {
+  umbrella header "Pods-SlackTeamExplorerTests-Keys-umbrella.h"
+
+  export *
+  module * { export * }
+}
