@@ -1,19 +1,20 @@
 platform :ios, '8.0'
+inhibit_all_warnings!
 use_frameworks!
 
 def pods
-  pod 'Moya', '~> 1.1'
+  pod 'Moya', '~> 1.1.1'
   pod 'HexColors', '~> 2.2.1'
+  pod 'ReactiveViewModel'
 end
 
-#target 'SlackTeamExplorer' do
-  pods
-  pod 'SDWebImage', '~> 3.7.2'
-#end
-#
-#target 'SlackTeamExplorerTests' do
-#
-#end
+pods
+pod 'SDWebImage', '~> 3.7.2'
+
+target 'SlackTeamExplorerTests' do
+    pod 'Quick', '~> 0.3.1'
+    pod 'Nimble', '~> 1.0.0-final'
+end
 
 plugin 'cocoapods-keys', {
 	:project => "SlackTeamExplorer",

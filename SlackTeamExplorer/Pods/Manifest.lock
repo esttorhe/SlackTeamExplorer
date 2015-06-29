@@ -6,6 +6,17 @@ PODS:
     - Moya/Core (= 1.1.1)
   - Moya/Core (1.1.1):
     - Alamofire (~> 1.2.0)
+  - Nimble (1.0.0)
+  - Quick (0.3.1)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - ReactiveViewModel (0.3):
+    - ReactiveCocoa (~> 2.4)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
@@ -13,7 +24,10 @@ PODS:
 DEPENDENCIES:
   - HexColors (~> 2.2.1)
   - Keys (from `Pods/CocoaPodsKeys`)
-  - Moya (~> 1.1)
+  - Moya (~> 1.1.1)
+  - Nimble (~> 1.0.0-final)
+  - Quick (~> 0.3.1)
+  - ReactiveViewModel
   - SDWebImage (~> 3.7.2)
 
 EXTERNAL SOURCES:
@@ -25,6 +39,10 @@ SPEC CHECKSUMS:
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   Moya: ee0c8da3abb87f2a46bce384bd42ca13260e690e
+  Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
+  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  ReactiveViewModel: 58918dcbcec2d3151195ab1ed9163c57a8163999
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
 COCOAPODS: 0.37.2

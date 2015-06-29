@@ -52,6 +52,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'HexColors.framework'
   install_framework 'Keys.framework'
   install_framework 'Moya.framework'
+  install_framework 'ReactiveCocoa.framework'
+  install_framework 'ReactiveViewModel.framework'
   install_framework 'SDWebImage.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -59,5 +61,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'HexColors.framework'
   install_framework 'Keys.framework'
   install_framework 'Moya.framework'
+  install_framework 'ReactiveCocoa.framework'
+  install_framework 'ReactiveViewModel.framework'
   install_framework 'SDWebImage.framework'
 fi
