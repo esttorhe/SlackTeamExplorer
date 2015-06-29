@@ -26,6 +26,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Configure transparent nav bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        
         // Configure the view models
         membersViewModel.beginLoadingSignal.deliverOnMainThread().subscribeNext { [unowned self] _ in
             self.loadingActivityIndicator.startAnimating()
@@ -52,6 +58,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         membersViewModel.active = true
     }
     
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let detailVC = segue.destinationViewController as? DetailViewController,
+            cell = sender as? MemberCell,
+            indexPath = collectionView.indexPathForCell(cell) {
+            let member = membersViewModel.memberAtIndexPath(indexPath)
+            detailVC.member = member
+        }
+    }
+    
     // MARK: - Collection View
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -73,16 +90,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 cell.avatarImageView.sd_setImageWithURL(NSURL(string: imageURL), placeholderImage: nil) { (image, error, cacheType, url) in
                     if let img = image {
                         cell.avatarImageView.image = img
-                    } else {
-                        // SDWebImage sometimes fails to render the Gravatar URL
-                        // hence we need to extract the underlying URL in order to use it.
-                        // Gravatar URL ->
-                        // e.g.: https://secure.gravatar.com/avatar/bbbca62a1ddf20311d32c1bd5bcc5d90.jpg?s=192&d=https://slack.global.ssl.fastly.net/3654/img/avatars/ava_0003.png
-                        if let urlComp = NSURLComponents(URL: url, resolvingAgainstBaseURL: false), items = urlComp.queryItems as? [NSURLQueryItem], urlStr = (items.filter { element -> Bool in
-                            return element.name == "d" // Only filter the «d» query parameter
-                            }.map { $0.value }.first), realStr = urlStr {
-                                cell.avatarImageView.sd_setImageWithURL(NSURL(string: realStr)!) // We successfully unwrapped the url from the «d» query parameter
-                        }
+                    } else if let fburl = profile.fallBackImageURL {
+                        cell.avatarImageView.sd_setImageWithURL(fburl)
                     }
                 }
             }

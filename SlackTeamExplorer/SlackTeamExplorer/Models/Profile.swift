@@ -31,6 +31,25 @@ public class Profile: NSManagedObject {
     // Relations
     @NSManaged var member: Member?
     
+    // Computed Variables
+    var fallBackImageURL: NSURL? {
+        get {
+            // SDWebImage sometimes fails to render the Gravatar URL
+            // hence we need to extract the underlying URL in order to use it.
+            // Gravatar URL ->
+            // e.g.: https://secure.gravatar.com/avatar/bbbca62a1ddf20311d32c1bd5bcc5d90.jpg?s=192&d=https://slack.global.ssl.fastly.net/3654/img/avatars/ava_0003.png
+            if let strURL = self.image192,
+                url = NSURL(string: strURL),
+                urlComp = NSURLComponents(URL: url, resolvingAgainstBaseURL: false), items = urlComp.queryItems as? [NSURLQueryItem], urlStr = (items.filter { element -> Bool in
+                return element.name == "d" // Only filter the «d» query parameter
+                }.map { $0.value }.first), realStr = urlStr {
+                    return NSURL(string: realStr)! // We successfully unwrapped the url from the «d» query parameter
+            }
+            
+            return nil
+        }
+    }
+    
     /**
     Inserts a new `Profile` entity to the `context` provided initialized with the `json`.
     
