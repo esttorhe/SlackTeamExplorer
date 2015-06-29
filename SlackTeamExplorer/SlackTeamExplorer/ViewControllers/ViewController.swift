@@ -111,6 +111,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
+    override func viewWillLayoutSubviews() {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     // MARK: - Collection View Flow Layout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

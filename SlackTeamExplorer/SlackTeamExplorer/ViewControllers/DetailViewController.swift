@@ -24,16 +24,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var skypeLabel: UILabel!
+    
+    override func viewWillLayoutSubviews() {
+        self.configureAvatarImageView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Configure UI
-        self.avatarImageView.layoutIfNeeded()
-        self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.bounds) / 2.0
-        self.avatarImageView.layer.masksToBounds = true
-        self.avatarImageView.layer.borderColor = UIColor.slackLightGreyColor().CGColor
-        self.avatarImageView.layer.borderWidth = 2.0
+        self.configureAvatarImageView()
         
         // Check if there's a valid member
         if let member = self.member {
@@ -59,14 +62,31 @@ class DetailViewController: UIViewController {
                         }
                     }
                 }
+                
+                if let phone = profile.phone {
+                    phoneLabel.text = "☎ \(phone)"
+                }
+                
+                if let email = profile.email {
+                    emailLabel.text = "✉ \(email)"
+                }
+                
+                if let skype = profile.skype {
+                    skypeLabel.text = "💻 \(skype)"
+                }
             }
-            
-//            if let strColor = member.color, color = UIColor(hexString: member.color) {
-//                cell.avatarImageView.layer.borderWidth = 4.0
-//                cell.avatarImageView.layer.borderColor = color.CGColor
-//                
-//                cell.layer.cornerRadius = CGRectGetWidth()
-//            }
+        }
+    }
+    
+    // MARK: - Internal UI Helpers
+    
+    internal func configureAvatarImageView(duration:NSTimeInterval = 0.5) {
+        self.avatarImageView.layoutIfNeeded()
+        UIView.animateWithDuration(duration) {
+            self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.bounds) / 2.0
+            self.avatarImageView.layer.masksToBounds = true
+            self.avatarImageView.layer.borderColor = UIColor.slackLightGreyColor().CGColor
+            self.avatarImageView.layer.borderWidth = 2.0
         }
     }
 }
