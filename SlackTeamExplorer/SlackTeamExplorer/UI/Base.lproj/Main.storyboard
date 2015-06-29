@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -13,6 +14,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5OY-Fs-xa7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="FUs-lQ-KYo" kind="relationship" relationship="rootViewController" id="rsC-Cz-eee"/>
@@ -52,7 +54,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydp-xv-ph9">
-                                                    <rect key="frame" x="64" y="8" width="42" height="20.5"/>
+                                                    <rect key="frame" x="64" y="8" width="41" height="19.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -65,7 +67,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdO-r2-UQe">
-                                                    <rect key="frame" x="64" y="29.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="64" y="33" width="35.5" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -87,6 +89,7 @@
                                             <outlet property="avatarImageView" destination="R8H-nM-Mls" id="QaI-BJ-hEP"/>
                                             <outlet property="titleLabel" destination="cdO-r2-UQe" id="b4V-hV-P5D"/>
                                             <outlet property="usernameLabel" destination="ydp-xv-ph9" id="InP-Ot-wUd"/>
+                                            <segue destination="fwa-uq-yOb" kind="show" id="JRJ-h5-G92"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -119,5 +122,119 @@
             </objects>
             <point key="canvasLocation" x="363" y="388"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="uBj-1O-r9g">
+            <objects>
+                <viewController id="fwa-uq-yOb" customClass="DetailViewController" customModule="SlackTeamExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hvy-Hd-d2h"/>
+                        <viewControllerLayoutGuide type="bottom" id="jO9-aH-8dC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jlh-nJ-x33">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slack" translatesAutoresizingMaskIntoConstraints="NO" id="O9D-b9-R5a" userLabel="Header - Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aqS-AP-geI" userLabel="Avatar - Image View">
+                                <rect key="frame" x="214.5" y="135" width="171" height="172"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aqS-AP-geI" secondAttribute="height" multiplier="1:1" id="rIV-cV-1c8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="W6V-lt-KTs" appends="YES" id="ldL-yb-XAY"/>
+                                </connections>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSu-Cr-OSb" userLabel="Content - Scroll View">
+                                <rect key="frame" x="0.0" y="306.5" width="600" height="293.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="asdfasdf" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enc-og-geo" userLabel="Username - Label">
+                                        <rect key="frame" x="0.0" y="8" width="600" height="19.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEI-fw-uwg" userLabel="Full Name - Label">
+                                        <rect key="frame" x="0.0" y="35.5" width="600" height="0.0"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsD-ox-l0O" userLabel="Title - Label">
+                                        <rect key="frame" x="0.0" y="47.5" width="600" height="0.0"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="enc-og-geo" firstAttribute="width" secondItem="eEI-fw-uwg" secondAttribute="width" id="1oL-wh-xcI"/>
+                                    <constraint firstItem="eEI-fw-uwg" firstAttribute="leading" secondItem="hSu-Cr-OSb" secondAttribute="leading" id="FBu-Br-xcz"/>
+                                    <constraint firstAttribute="centerX" secondItem="xsD-ox-l0O" secondAttribute="centerX" constant="-0.5" id="KFq-Z9-jpU"/>
+                                    <constraint firstAttribute="bottom" secondItem="xsD-ox-l0O" secondAttribute="bottom" constant="235" id="Kp0-by-E8B"/>
+                                    <constraint firstAttribute="trailing" secondItem="eEI-fw-uwg" secondAttribute="trailing" id="S8e-Vh-dVW"/>
+                                    <constraint firstAttribute="centerX" secondItem="eEI-fw-uwg" secondAttribute="centerX" id="c1E-d4-VgF"/>
+                                    <constraint firstItem="xsD-ox-l0O" firstAttribute="top" secondItem="eEI-fw-uwg" secondAttribute="bottom" constant="12" id="cHr-Sb-eAo"/>
+                                    <constraint firstItem="eEI-fw-uwg" firstAttribute="top" secondItem="enc-og-geo" secondAttribute="bottom" constant="8" id="k7Q-pv-hhM"/>
+                                    <constraint firstItem="enc-og-geo" firstAttribute="width" secondItem="xsD-ox-l0O" secondAttribute="width" id="tWk-hw-vrk"/>
+                                    <constraint firstItem="enc-og-geo" firstAttribute="top" secondItem="hSu-Cr-OSb" secondAttribute="top" constant="8" id="xM9-5j-SQu"/>
+                                    <constraint firstAttribute="centerX" secondItem="enc-og-geo" secondAttribute="centerX" id="ycQ-mY-LzU"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O9D-b9-R5a" firstAttribute="leading" secondItem="jlh-nJ-x33" secondAttribute="leading" id="034-cB-dYp"/>
+                            <constraint firstItem="aqS-AP-geI" firstAttribute="top" secondItem="hvy-Hd-d2h" secondAttribute="bottom" constant="71" id="8aj-zJ-37M"/>
+                            <constraint firstItem="hSu-Cr-OSb" firstAttribute="leading" secondItem="jlh-nJ-x33" secondAttribute="leading" id="Ju8-H9-CUF"/>
+                            <constraint firstItem="O9D-b9-R5a" firstAttribute="centerY" secondItem="aqS-AP-geI" secondAttribute="centerY" constant="-99" id="LDA-f3-H5R"/>
+                            <constraint firstAttribute="height" secondItem="O9D-b9-R5a" secondAttribute="height" multiplier="3:1" id="N4k-dQ-d2r"/>
+                            <constraint firstItem="aqS-AP-geI" firstAttribute="leading" secondItem="jlh-nJ-x33" secondAttribute="leadingMargin" constant="14" id="dsV-v5-3mS"/>
+                            <constraint firstItem="O9D-b9-R5a" firstAttribute="width" secondItem="aqS-AP-geI" secondAttribute="width" multiplier="7:2" id="dw6-Dr-mv0"/>
+                            <constraint firstAttribute="trailing" secondItem="O9D-b9-R5a" secondAttribute="trailing" id="hye-bg-NRR"/>
+                            <constraint firstAttribute="centerX" secondItem="aqS-AP-geI" secondAttribute="centerX" id="j0d-i8-JHr"/>
+                            <constraint firstItem="O9D-b9-R5a" firstAttribute="top" secondItem="jlh-nJ-x33" secondAttribute="top" id="oJR-f1-l4M"/>
+                            <constraint firstAttribute="trailing" secondItem="hSu-Cr-OSb" secondAttribute="trailing" id="pwu-hf-ins"/>
+                            <constraint firstItem="hSu-Cr-OSb" firstAttribute="top" secondItem="aqS-AP-geI" secondAttribute="bottom" id="xo4-fQ-UVq"/>
+                            <constraint firstItem="jO9-aH-8dC" firstAttribute="top" secondItem="hSu-Cr-OSb" secondAttribute="bottom" id="z1h-tr-s3g"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LDA-f3-H5R"/>
+                                <exclude reference="dsV-v5-3mS"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="LDA-f3-H5R"/>
+                                <exclude reference="8aj-zJ-37M"/>
+                                <include reference="dsV-v5-3mS"/>
+                                <exclude reference="j0d-i8-JHr"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="aqS-AP-geI" id="dQB-EJ-Oq4"/>
+                        <outlet property="fullNameLabel" destination="eEI-fw-uwg" id="gV9-ns-HKa"/>
+                        <outlet property="headerImageView" destination="O9D-b9-R5a" id="K13-Pj-dQ8"/>
+                        <outlet property="titleLabel" destination="xsD-ox-l0O" id="hJ2-Qv-x4D"/>
+                        <outlet property="usernameLabel" destination="enc-og-geo" id="GC7-V2-Icd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyY-Vy-sl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="W6V-lt-KTs">
+                    <connections>
+                        <action selector="imageTapped:" destination="fwa-uq-yOb" id="MfT-jO-ibQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1102" y="388"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="slack" width="2000" height="714"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11E69A111B41F85F00E59190 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E69A101B41F85F00E59190 /* DetailViewController.swift */; };
 		11EB45541B41C6F200F2FC50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB45531B41C6F200F2FC50 /* AppDelegate.swift */; };
 		11EB45571B41C6F200F2FC50 /* SlackTeamExplorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11EB45551B41C6F200F2FC50 /* SlackTeamExplorer.xcdatamodeld */; };
 		11EB45591B41C6F200F2FC50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB45581B41C6F200F2FC50 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11E69A101B41F85F00E59190 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		11EB454E1B41C6F200F2FC50 /* SlackTeamExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackTeamExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EB45521B41C6F200F2FC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11EB45531B41C6F200F2FC50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				11EB45581B41C6F200F2FC50 /* ViewController.swift */,
+				11E69A101B41F85F00E59190 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				11EB45571B41C6F200F2FC50 /* SlackTeamExplorer.xcdatamodeld in Sources */,
 				11EB45861B41E20800F2FC50 /* MembersViewModel.swift in Sources */,
 				11EB45541B41C6F200F2FC50 /* AppDelegate.swift in Sources */,
+				11E69A111B41F85F00E59190 /* DetailViewController.swift in Sources */,
 				11EB458C1B41EB1D00F2FC50 /* UIColors_Slack.swift in Sources */,
 				11EB457E1B41CE2000F2FC50 /* Member.swift in Sources */,
 			);
