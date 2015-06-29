@@ -17,7 +17,7 @@
         <attribute name="tz" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tzLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tzOffset" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="profile" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Profile" inverseName="member" inverseEntity="Profile" syncable="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="member" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,10 +34,10 @@
         <attribute name="realNameNormalized" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="skype" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="member" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Member" inverseName="profile" inverseEntity="Member" syncable="YES"/>
+        <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Member" inverseName="profile" inverseEntity="Member" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Profile" positionX="-63" positionY="-18" width="128" height="270"/>
         <element name="Member" positionX="-54" positionY="-9" width="128" height="300"/>
+        <element name="Profile" positionX="-63" positionY="-18" width="128" height="270"/>
     </elements>
 </model>
