@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E36b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Member" representedClassName="Member" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="has2FA" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasFiles" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isAdmin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isBot" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isOwner" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPrimaryOwner" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isRestricted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUltraRestricted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="membersIdentifier" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="realName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tz" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tzLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tzOffset" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Profile" inverseName="member" inverseEntity="Profile" syncable="YES"/>
+    </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image24" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image32" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image48" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image72" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image192" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageOriginal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="realName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="realNameNormalized" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="member" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Member" inverseName="profile" inverseEntity="Member" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Profile" positionX="-63" positionY="-18" width="128" height="270"/>
+        <element name="Member" positionX="-54" positionY="-9" width="128" height="300"/>
+    </elements>
 </model>
