@@ -48,8 +48,16 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Alamofire.framework'
+  install_framework 'HexColors.framework'
   install_framework 'Keys.framework'
+  install_framework 'Moya.framework'
+  install_framework 'SDWebImage.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'Alamofire.framework'
+  install_framework 'HexColors.framework'
   install_framework 'Keys.framework'
+  install_framework 'Moya.framework'
+  install_framework 'SDWebImage.framework'
 fi

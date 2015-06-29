@@ -6,17 +6,17 @@ def pods
   pod 'HexColors', '~> 2.2.1'
 end
 
-target 'SlackTeamExplorer' do
+#target 'SlackTeamExplorer' do
   pods
   pod 'SDWebImage', '~> 3.7.2'
-end
-
-target 'SlackTeamExplorerTests' do
-
-end
+#end
+#
+#target 'SlackTeamExplorerTests' do
+#
+#end
 
 plugin 'cocoapods-keys', {
 	:project => "SlackTeamExplorer",
 	:keys => [
-	"SlackToken"
-	]}
+	  "SlackToken"
+  ]}
