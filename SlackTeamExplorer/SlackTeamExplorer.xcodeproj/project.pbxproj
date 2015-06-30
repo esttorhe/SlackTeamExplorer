@@ -30,7 +30,6 @@
 		11770C7E1B424F0C0067099B /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7B1B424F0C0067099B /* DetailInterfaceController.swift */; };
 		11770C7F1B424F0C0067099B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7C1B424F0C0067099B /* TeamCell.swift */; };
 		11CB483B1B42DDE6002DF26F /* members.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CB483A1B42DDE6002DF26F /* members.json */; };
-		11CB483D1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB483C1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift */; };
 		11CB483F1B42E8BC002DF26F /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB483E1B42E8BC002DF26F /* ProfileTests.swift */; };
 		11CB48411B42EBD4002DF26F /* MembersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB48401B42EBD4002DF26F /* MembersViewModelTests.swift */; };
 		11E69A111B41F85F00E59190 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E69A101B41F85F00E59190 /* DetailViewController.swift */; };
@@ -153,7 +152,6 @@
 		11770C7B1B424F0C0067099B /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
 		11770C7C1B424F0C0067099B /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		11CB483A1B42DDE6002DF26F /* members.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = members.json; sourceTree = "<group>"; };
-		11CB483C1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackTeamCoredataProxy_Test.swift; sourceTree = "<group>"; };
 		11CB483E1B42E8BC002DF26F /* ProfileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		11CB48401B42EBD4002DF26F /* MembersViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewModelTests.swift; sourceTree = "<group>"; };
 		11E69A101B41F85F00E59190 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 				11CB48391B42DDE6002DF26F /* Fixtures */,
 				114F74341B423C4900AF4F40 /* MemberTests.swift */,
 				11CB483E1B42E8BC002DF26F /* ProfileTests.swift */,
-				11CB483C1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift */,
 				11CB48401B42EBD4002DF26F /* MembersViewModelTests.swift */,
 				114F74321B423C4900AF4F40 /* Supporting Files */,
 			);
@@ -988,7 +985,6 @@
 				11CB48411B42EBD4002DF26F /* MembersViewModelTests.swift in Sources */,
 				11CB483F1B42E8BC002DF26F /* ProfileTests.swift in Sources */,
 				114F74351B423C4900AF4F40 /* MemberTests.swift in Sources */,
-				11CB483D1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

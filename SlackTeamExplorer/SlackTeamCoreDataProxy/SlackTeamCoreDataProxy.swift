@@ -27,6 +27,8 @@ public class SlackTeamCoreDataProxy: NSObject {
         static var DatabaseName: String { get { return "SlackTeamExplorer" } }
     }
     
+    public var useMemoryStorage:Bool = false
+    
     public lazy var managedObjectModel: NSManagedObjectModel = {
         let proxyBundle = NSBundle(identifier: "\(AppConfiguration.Bundle.prefix).SlackTeamCoreDataProxy")
         
@@ -56,6 +58,18 @@ public class SlackTeamCoreDataProxy: NSObject {
         }()
     
     public lazy var managedObjectContext: NSManagedObjectContext? = {
+        if self.useMemoryStorage {
+            let managedObjectModel = self.managedObjectModel
+            
+            let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+            persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+            
+            let managedObjectContext = NSManagedObjectContext()
+            managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+            
+            return managedObjectContext
+        }
+        
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
         if coordinator == nil {
@@ -63,8 +77,9 @@ public class SlackTeamCoreDataProxy: NSObject {
         }
         var managedObjectContext = NSManagedObjectContext()
         managedObjectContext.persistentStoreCoordinator = coordinator
+        
         return managedObjectContext
-        }()
+    }()
     
     // MARK: - Core Data Saving support
     

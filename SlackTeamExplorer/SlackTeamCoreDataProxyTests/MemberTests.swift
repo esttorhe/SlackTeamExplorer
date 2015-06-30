@@ -23,6 +23,11 @@ class MemberTests: XCTestCase {
         
     }
     
+    override func setUp() {
+        super.setUp()
+        coreDataProxy.useMemoryStorage = true
+    }
+    
     func testMembersCorrectlyParsed() {
         var error: NSError?
         if let filePath = OHPathForFile("members.json", MemberTests.self),
@@ -31,7 +36,7 @@ class MemberTests: XCTestCase {
             XCTAssertNotNil(json["members"], "Couldn't find `members` leaf on fixture.")
             
             if let jsonMembers = json["members"] as? Array<Dictionary<String, AnyObject>>,
-                context = coreDataProxy.testManagedContext() {
+                context = coreDataProxy.managedObjectContext {
                 let members = jsonMembers.map { Member.memberInContext(context, json: $0) }
                 
                 XCTAssertEqual(members.count, jsonMembers.count, "One or more models were not successfully parsed.")

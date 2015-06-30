@@ -23,6 +23,11 @@ class ProfileTests: XCTestCase {
         
     }
     
+    override func setUp() {
+        super.setUp()
+        coreDataProxy.useMemoryStorage = true
+    }
+    
     func testMembersCorrectlyParsed() {
         var error: NSError?
         if let filePath = OHPathForFile("members.json", ProfileTests.self),
@@ -33,7 +38,7 @@ class ProfileTests: XCTestCase {
             
             if let jsonMembers = json["members"] as? Array<Dictionary<String, AnyObject>>,
                 jsonProfile = json["members"]!["profile"] as? Dictionary<String, AnyObject>,
-                context = coreDataProxy.testManagedContext() {
+                context = coreDataProxy.managedObjectContext {
                 let profile = Profile.profileInContext(context, json: jsonProfile)
                 XCTAssertNotNil(profile, "Unable to successfully parse the `JSON` to a valid `Profile` instance.")
             }

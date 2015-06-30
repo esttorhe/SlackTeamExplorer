@@ -17,7 +17,6 @@ import ReachabilitySwift
 public class MembersViewModel: RVMViewModel {
     private var members = [Member]()
     private let coreDataProxy = SlackTeamCoreDataProxy()
-    public var managedContext: NSManagedObjectContext?
     public let beginLoadingSignal: RACSignal = RACSubject()
     public let endLoadingSignal: RACSignal = RACSubject()
     public let updateContentSignal: RACSignal = RACSubject()
@@ -39,9 +38,7 @@ public class MembersViewModel: RVMViewModel {
     }
     
     public init(useGroupContext:Bool = true) {
-        if useGroupContext {
-            self.managedContext = coreDataProxy.managedObjectContext
-        }
+        coreDataProxy.useMemoryStorage = !useGroupContext
         
         super.init()
         
