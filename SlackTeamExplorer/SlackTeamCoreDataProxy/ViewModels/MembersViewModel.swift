@@ -1,6 +1,6 @@
 //
 //  MembersViewModel.swift
-//  SlackTeamExplorer
+//  SlackTeamCoreDataProxy
 //
 //  Created by Esteban Torres on 29/6/15.
 //  Copyright (c) 2015 Esteban Torres. All rights reserved.
@@ -16,24 +16,28 @@ import ReachabilitySwift
 
 public class MembersViewModel: RVMViewModel {
     private var members = [Member]()
-    let beginLoadingSignal: RACSignal = RACSubject()
-    let endLoadingSignal: RACSignal = RACSubject()
-    let updateContentSignal: RACSignal = RACSubject()
-    let reachability = Reachability.reachabilityForInternetConnection()
+    private let coreDataProxy = SlackTeamCoreDataProxy()
+    public let beginLoadingSignal: RACSignal = RACSubject()
+    public let endLoadingSignal: RACSignal = RACSubject()
+    public let updateContentSignal: RACSignal = RACSubject()
+    public let reachability = Reachability.reachabilityForInternetConnection()
+    public var loadFromDBOnly: Bool = false
     
-    var numberOfSections: Int {
+    public var numberOfSections: Int {
         get { return 1 }
     }
     
-    func numberOfItemsInSection(section: Int) -> Int {
+    public func numberOfItemsInSection(section: Int) -> Int {
         return self.members.count
     }
     
-    func memberAtIndexPath(indexPath: NSIndexPath) -> Member {
+    public func memberAtIndexPath(indexPath: NSIndexPath) -> Member {
+        let member = self.members[indexPath.item]
+        
         return self.members[indexPath.item]
     }
     
-    override init() {
+    override public init() {
         super.init()
         
         reachability.startNotifier()
@@ -44,7 +48,7 @@ public class MembersViewModel: RVMViewModel {
         
             // Check if we have connectivity or not and retrieve the data depending
             // on this.
-            if self.reachability.isReachable() {
+            if self.reachability.isReachable() && !self.loadFromDBOnly {
                 self.loadDataFromWeb()
             } else {
                 self.loadDataFromDB()
@@ -82,9 +86,7 @@ public class MembersViewModel: RVMViewModel {
             if let data = data {
                 var localError: NSError?
                 if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &localError) {
-                    if let members = json["members"] as? Array<Dictionary<NSObject, AnyObject>>,
-                        appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
-                        context = appDelegate.managedObjectContext {
+                    if let members = json["members"] as? Array<Dictionary<NSObject, AnyObject>> {
                             // Map the array of dictionaries into Member models removing possible `nil`s.
                             self.findOrCreate(members: members)
                             
@@ -110,8 +112,7 @@ public class MembersViewModel: RVMViewModel {
     would have an empty set of data.
     */
     internal func loadDataFromDB() {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
-            context = appDelegate.managedObjectContext {
+        if let context = coreDataProxy.managedObjectContext {
                 let fetch = NSFetchRequest(entityName: "Member")
                 var innerError: NSError?
                 if let currentMembers = context.executeFetchRequest(fetch, error: &innerError) as? Array<Member> {
@@ -152,39 +153,38 @@ public class MembersViewModel: RVMViewModel {
     For the sake's of this demo we are not updating matching data and only fetching to insert missing records.
     */
     internal func findOrCreate(#members: Array<Dictionary<NSObject, AnyObject>>) {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
-            context = appDelegate.managedObjectContext {
-                var membersArray = Array<Member>()
+        if let context = coreDataProxy.managedObjectContext {
+            var membersArray = Array<Member>()
+            
+            // Extract & sort the ids of the JSON members
+            let sortedMembers = members.map{ $0["id"] as! String }.sorted{ $0 < $1 }
+            
+            // Fetch all the existing members that match the ids provided
+            var error: NSError?
+            let fetchRequest = NSFetchRequest(entityName: "Member")
+            fetchRequest.predicate = NSPredicate(format: "(membersIdentifier IN %@)", sortedMembers)
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "membersIdentifier", ascending: true)]
+            if let matchingMembers = context.executeFetchRequest(fetchRequest, error: &error) as? Array<Member> {
+                membersArray += matchingMembers
                 
-                // Extract & sort the ids of the JSON members
-                let sortedMembers = members.map{ $0["id"] as! String }.sorted{ $0 < $1 }
-                
-                // Fetch all the existing members that match the ids provided
-                var error: NSError?
-                let fetchRequest = NSFetchRequest(entityName: "Member")
-                fetchRequest.predicate = NSPredicate(format: "(membersIdentifier IN %@)", sortedMembers)
-                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "membersIdentifier", ascending: true)]
-                if let matchingMembers = context.executeFetchRequest(fetchRequest, error: &error) as? Array<Member> {
-                    membersArray += matchingMembers
-                    
-                    let fetchedIds = matchingMembers.map { $0.membersIdentifier }.sorted{ $0 < $1 }.map{ $0! }
-                    // We have all the matching IDs, now filter the data that should be inserted
-                    let predicate = NSPredicate(format: "NOT (SELF[\"id\"] IN %@)", fetchedIds)
-                    if let memberIDsToInsert = (members as NSArray).filteredArrayUsingPredicate(predicate) as? Array<Dictionary<String, AnyObject>> {
-                        // Map the data not present in the DB into `Member` objects
-                        let membersToInsert = memberIDsToInsert.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
-                        membersArray += membersToInsert
-                    }
-                } else {
-                    let newMembers = members.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
-                    membersArray += newMembers
+                let fetchedIds = matchingMembers.map { $0.membersIdentifier }.sorted{ $0 < $1 }.map{ $0! }
+                // We have all the matching IDs, now filter the data that should be inserted
+                let predicate = NSPredicate(format: "NOT (SELF[\"id\"] IN %@)", fetchedIds)
+                if let memberIDsToInsert = (members as NSArray).filteredArrayUsingPredicate(predicate) as? Array<Dictionary<String, AnyObject>> {
+                    // Map the data not present in the DB into `Member` objects
+                    let membersToInsert = memberIDsToInsert.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
+                    membersArray += membersToInsert
                 }
-                
-                self.members = membersArray
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    appDelegate.saveContext()
-                }
+            } else {
+                let newMembers = members.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
+                membersArray += newMembers
+            }
+            
+            self.members = membersArray
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.coreDataProxy.saveContext()
+            }
         }
     }
 }

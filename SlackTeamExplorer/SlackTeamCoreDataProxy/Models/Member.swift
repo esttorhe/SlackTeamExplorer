@@ -5,31 +5,31 @@ import Foundation
 
 /// Member `NSManagedObject` model.
 @objc(Member)
-class Member : NSManagedObject {
+public class Member : NSManagedObject {
     // Basic properties
-    @NSManaged var membersIdentifier: String?
-    @NSManaged var realName: String?
-    @NSManaged var color: String?
-    @NSManaged var name: String
+    @NSManaged public var membersIdentifier: String?
+    @NSManaged public var realName: String?
+    @NSManaged public var color: String?
+    @NSManaged public var name: String
     
     // Timezones
-    @NSManaged var tzLabel: String
-    @NSManaged var tz: String
-    @NSManaged var tzOffset: Int32
+    @NSManaged public var tzLabel: String
+    @NSManaged public var tz: String
+    @NSManaged public var tzOffset: Int32
     
     // Customization Flags
-    @NSManaged var isUltraRestricted: Bool
-    @NSManaged var isOwner: Bool
-    @NSManaged var isPrimaryOwner: Bool
-    @NSManaged var isRestricted: Bool
-    @NSManaged var has2FA: Bool
-    @NSManaged var hasFiles: Bool
-    @NSManaged var devared: Bool
-    @NSManaged var isNot: Bool
-    @NSManaged var isAdmin: Bool
+    @NSManaged public var isUltraRestricted: Bool
+    @NSManaged public var isOwner: Bool
+    @NSManaged public var isPrimaryOwner: Bool
+    @NSManaged public var isRestricted: Bool
+    @NSManaged public var has2FA: Bool
+    @NSManaged public var hasFiles: Bool
+    @NSManaged public var devared: Bool
+    @NSManaged public var isNot: Bool
+    @NSManaged public var isAdmin: Bool
     
     // Relations
-    @NSManaged var profile: Profile?
+    @NSManaged public var profile: Profile?
     
     /**
     Inserts a new `Member` entity to the `context` provided initialized with the `json`.

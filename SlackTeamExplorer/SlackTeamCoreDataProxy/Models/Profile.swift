@@ -7,32 +7,32 @@ import Foundation
 @objc(Profile)
 public class Profile: NSManagedObject {
     // Images
-    @NSManaged var image24: String?
-    @NSManaged var image32: String?
-    @NSManaged var image48: String?
-    @NSManaged var image72: String?
-    @NSManaged var image192: String?
-    @NSManaged var imageOriginal: String?
+    @NSManaged public var image24: String?
+    @NSManaged public var image32: String?
+    @NSManaged public var image48: String?
+    @NSManaged public var image72: String?
+    @NSManaged public var image192: String?
+    @NSManaged public var imageOriginal: String?
     
     // Name
-    @NSManaged var realName: String?
-    @NSManaged var realNameNormalized: String?
-    @NSManaged var firstName: String?
-    @NSManaged var lastName: String?
+    @NSManaged public var realName: String?
+    @NSManaged public var realNameNormalized: String?
+    @NSManaged public var firstName: String?
+    @NSManaged public var lastName: String?
     
     // Contact
-    @NSManaged var phone: String?
-    @NSManaged var skype: String?
-    @NSManaged var email: String?
+    @NSManaged public var phone: String?
+    @NSManaged public var skype: String?
+    @NSManaged public var email: String?
     
     // Misc
-    @NSManaged var title: String?
+    @NSManaged public var title: String?
     
     // Relations
-    @NSManaged var member: Member?
+    @NSManaged public var member: Member?
     
     // Computed Variables
-    var fallBackImageURL: NSURL? {
+    public var fallBackImageURL: NSURL? {
         get {
             // SDWebImage sometimes fails to render the Gravatar URL
             // hence we need to extract the underlying URL in order to use it.

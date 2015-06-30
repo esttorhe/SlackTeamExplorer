@@ -9,6 +9,9 @@
 // Native Frameworks
 import UIKit
 
+// Shared
+import SlackTeamCoreDataProxy
+
 // Misc.
 import HexColors
 
@@ -21,7 +24,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
     // ViewModels
-    internal let membersViewModel = MembersViewModel()
+    let membersViewModel = MembersViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +72,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if let detailVC = segue.destinationViewController as? DetailViewController,
             cell = sender as? MemberCell,
             indexPath = collectionView.indexPathForCell(cell) {
-            let member = membersViewModel.memberAtIndexPath(indexPath)
-            detailVC.member = member
+                let member = membersViewModel.memberAtIndexPath(indexPath)
+                detailVC.memberViewModel = MemberViewModel(memberID: member.objectID)
         }
     }
     
