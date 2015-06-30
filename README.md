@@ -6,9 +6,8 @@ Explore Slack's teams (list all users and their basic profiles).
 This project comes preconfigured except for the [«Entitlements»][caveats] setup required.
 
 ---
-Please follow the [«Finishing Touches»][caveats] section before trying to run the project.
+# Please follow the [«Finishing Touches»][caveats] section before trying to run the project.
 ---
-
 
 ### Notice
 The project uses [`CocoaPods`][cocoapods] and [`Bundler`][bundler] but comes «fully» configured (save some [caveats][caveats]).
@@ -53,10 +52,13 @@ The way this project is structured is by using `App Groups` and sharing the `Cor
 
 In order to do this there's a couple of things that need to be done before compiling and running the project:
 
-1. Set the project’s bundle identifier prefix.2. Select your development team.3. Create provisioning profiles.
+1. Set the project’s bundle identifier prefix.
+2. Select your development team.
+3. Create provisioning profiles.
 
 ### 1. Set the Project’s Bundle Identifier Prefix
-Open app `Xcode`, select `SlackTeamExplorer` project -> Build Settings and change the `User Defined` value `SLACKEXPLORER_BUNDLE_PREFIX` to a globally unique reverse DNS string for your ownorganization’s name.
+Open app `Xcode`, select `SlackTeamExplorer` project -> Build Settings and change the `User Defined` value `SLACKEXPLORER_BUNDLE_PREFIX` to a globally unique reverse DNS string for your own
+organization’s name.
 
 ![](web/BundlePrefix.jpg)
 
@@ -70,10 +72,17 @@ Select your paid iOS Developer Program account as the development team for each 
 
 ### 3. Create Provisioning Profiles
 Create a provisioning profile for each of the three targets below:
-- SlackTeamExplorer- SlackTeamExplorer WatchKit Extension
+
+- SlackTeamExplorer
+- SlackTeamExplorer WatchKit Extension
 
 Xcode helps you to create these provisioning profiles. First, select the `SlackTeamExplorer` project in the `Xcode` project navigator. Then, for each of the three targets listed above:
-1. Select the target in the Targets list.2. Select the General tab in the right-hand pane.3. In the Identity section, under the Team popup menu, click Fix Issue.4. Xcode will download a new provisioning profile for that target. (Thisprocess may take up to 30 seconds per target.)
+
+1. Select the target in the Targets list.
+2. Select the General tab in the right-hand pane.
+3. In the Identity section, under the Team popup menu, click Fix Issue.
+4. Xcode will download a new provisioning profile for that target. (This
+process may take up to 30 seconds per target.)
 
 
 Supported Devices: 
