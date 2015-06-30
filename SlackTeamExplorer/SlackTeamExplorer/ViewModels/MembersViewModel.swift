@@ -42,6 +42,8 @@ public class MembersViewModel: RVMViewModel {
             // Notify caller that network request is about to begin
             if let beginSignal = self.beginLoadingSignal as? RACSubject { beginSignal.sendNext(nil) }
         
+            // Check if we have connectivity or not and retrieve the data depending
+            // on this.
             if self.reachability.isReachable() {
                 self.loadDataFromWeb()
             } else {
@@ -52,6 +54,15 @@ public class MembersViewModel: RVMViewModel {
     
     // MARK: - Internal Helpers
     
+    /**
+    Executes a REST request to Slack's API retrieving all the members of the team associated to the
+    provided auth token.
+    
+    Once successfully retrieved the data checks for existing members in the DB and only inserts the
+    new ones.
+    
+    Assigns a union of both lists as `self.members` for later usage.
+    */
     internal func loadDataFromWeb() {
         SlackProvider.request(.TeamUsersList) { (data, status, response, error) -> () in
             // Notify caller that network request ended
@@ -75,10 +86,7 @@ public class MembersViewModel: RVMViewModel {
                         appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
                         context = appDelegate.managedObjectContext {
                             // Map the array of dictionaries into Member models removing possible `nil`s.
-                            self.members = members.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
-                            dispatch_async(dispatch_get_main_queue()) {
-                                appDelegate.saveContext()
-                            }
+                            self.findOrCreate(members: members)
                             
                             // Report back the new data.
                             if let updateSignal = self.updateContentSignal as? RACSubject {
@@ -94,6 +102,13 @@ public class MembersViewModel: RVMViewModel {
         }
     }
     
+    /**
+    Retrieves the list of members from the team associated to the auth token previously retrieved
+    from the Web.
+    
+    If no local data is found (meaning we never ran the app connected to the internet before) we 
+    would have an empty set of data.
+    */
     internal func loadDataFromDB() {
         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
             context = appDelegate.managedObjectContext {
@@ -126,6 +141,49 @@ public class MembersViewModel: RVMViewModel {
                             userInfo: [NSLocalizedDescriptionKey: "Unable to retrieve `Member` models from the database"])
                         updateSignal.sendError(err)
                     }
+                }
+        }
+    }
+    
+    /**
+    Following Apple's suggestions ( https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CoreData/Articles/cdImporting.html )
+    we try to match existing members in one single fetch and then only insert missing records from the DB.
+    
+    For the sake's of this demo we are not updating matching data and only fetching to insert missing records.
+    */
+    internal func findOrCreate(#members: Array<Dictionary<NSObject, AnyObject>>) {
+        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
+            context = appDelegate.managedObjectContext {
+                var membersArray = Array<Member>()
+                
+                // Extract & sort the ids of the JSON members
+                let sortedMembers = members.map{ $0["id"] as! String }.sorted{ $0 < $1 }
+                
+                // Fetch all the existing members that match the ids provided
+                var error: NSError?
+                let fetchRequest = NSFetchRequest(entityName: "Member")
+                fetchRequest.predicate = NSPredicate(format: "(membersIdentifier IN %@)", sortedMembers)
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "membersIdentifier", ascending: true)]
+                if let matchingMembers = context.executeFetchRequest(fetchRequest, error: &error) as? Array<Member> {
+                    membersArray += matchingMembers
+                    
+                    let fetchedIds = matchingMembers.map { $0.membersIdentifier }.sorted{ $0 < $1 }.map{ $0! }
+                    // We have all the matching IDs, now filter the data that should be inserted
+                    let predicate = NSPredicate(format: "NOT (SELF[\"id\"] IN %@)", fetchedIds)
+                    if let memberIDsToInsert = (members as NSArray).filteredArrayUsingPredicate(predicate) as? Array<Dictionary<String, AnyObject>> {
+                        // Map the data not present in the DB into `Member` objects
+                        let membersToInsert = memberIDsToInsert.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
+                        membersArray += membersToInsert
+                    }
+                } else {
+                    let newMembers = members.map { Member.memberInContext(context, json: $0) }.filter{ $0 != nil }.map{ $0! }
+                    membersArray += newMembers
+                }
+                
+                self.members = membersArray
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    appDelegate.saveContext()
                 }
         }
     }
