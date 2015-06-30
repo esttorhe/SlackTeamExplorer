@@ -113,36 +113,37 @@ public class MembersViewModel: RVMViewModel {
     */
     internal func loadDataFromDB() {
         if let context = coreDataProxy.managedObjectContext {
-                let fetch = NSFetchRequest(entityName: "Member")
-                var innerError: NSError?
-                if let currentMembers = context.executeFetchRequest(fetch, error: &innerError) as? Array<Member> {
-                    // Notify caller that network request ended
-                    if let endSignal = self.endLoadingSignal as? RACSubject { endSignal.sendNext(nil) }
-                    
-                    // Check if there was a network error, and if so notify back and cancel processing
-                    // data.
-                    if let err = innerError where err.code != 0 {
-                        if let updateSignal = self.updateContentSignal as? RACSubject {
-                            updateSignal.sendError(err)
-                        }
-                        
-                        return
-                    }
-                    
-                    self.members = currentMembers
-                    
-                    // Report back the new data.
+            let fetch = NSFetchRequest(entityName: "Member")
+            fetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            var innerError: NSError?
+            if let currentMembers = context.executeFetchRequest(fetch, error: &innerError) as? Array<Member> {
+                // Notify caller that network request ended
+                if let endSignal = self.endLoadingSignal as? RACSubject { endSignal.sendNext(nil) }
+                
+                // Check if there was a network error, and if so notify back and cancel processing
+                // data.
+                if let err = innerError where err.code != 0 {
                     if let updateSignal = self.updateContentSignal as? RACSubject {
-                        updateSignal.sendNext(self.members)
-                    }
-                } else {
-                    if let updateSignal = self.updateContentSignal as? RACSubject {
-                        let err = NSError(domain: "es.estebantorr.SlackTeamExplorer.MembersViewModel",
-                            code: -667,
-                            userInfo: [NSLocalizedDescriptionKey: "Unable to retrieve `Member` models from the database"])
                         updateSignal.sendError(err)
                     }
+                    
+                    return
                 }
+                
+                self.members = currentMembers
+                
+                // Report back the new data.
+                if let updateSignal = self.updateContentSignal as? RACSubject {
+                    updateSignal.sendNext(self.members)
+                }
+            } else {
+                if let updateSignal = self.updateContentSignal as? RACSubject {
+                    let err = NSError(domain: "es.estebantorr.SlackTeamExplorer.MembersViewModel",
+                        code: -667,
+                        userInfo: [NSLocalizedDescriptionKey: "Unable to retrieve `Member` models from the database"])
+                    updateSignal.sendError(err)
+                }
+            }
         }
     }
     
@@ -180,7 +181,7 @@ public class MembersViewModel: RVMViewModel {
                 membersArray += newMembers
             }
             
-            self.members = membersArray
+            self.members = membersArray.sorted{ $0.name < $1.name }
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.coreDataProxy.saveContext()
