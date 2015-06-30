@@ -1,0 +1,6 @@
+framework module ReachabilitySwift {
+  umbrella header "Pods-SlackTeamCoreDataProxyTests-ReachabilitySwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

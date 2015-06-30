@@ -40,7 +40,7 @@ public class Member : NSManagedObject {
     
     - :returns: A fully initialized `Member` instance with the values read from the `json` provided.
     */
-    static func memberInContext(context: NSManagedObjectContext, json:[NSObject:AnyObject?]) -> Member? {
+    public static func memberInContext(context: NSManagedObjectContext, json:[NSObject:AnyObject?]) -> Member? {
         if let member = NSEntityDescription.insertNewObjectForEntityForName("Member", inManagedObjectContext: context) as? Member {
             if let id = json["id"] as? String {
                 member.membersIdentifier = id

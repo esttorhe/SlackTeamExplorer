@@ -17,6 +17,10 @@ target 'SlackTeamCoreDataProxy', :exclusive => true do
     core_pods
 end
 
+target 'SlackTeamCoreDataProxyTests' do 
+  pod 'OHHTTPStubs', '~> 4.0.2'
+end
+
 core_pods
 ui_pods
 

@@ -13,7 +13,7 @@
 		114F740F1B423A4100AF4F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114F740E1B423A4100AF4F40 /* Images.xcassets */; };
 		114F74261B423C4800AF4F40 /* SlackTeamCoreDataProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 114F74251B423C4800AF4F40 /* SlackTeamCoreDataProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		114F742C1B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114F74211B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework */; };
-		114F74351B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F74341B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift */; };
+		114F74351B423C4900AF4F40 /* MemberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F74341B423C4900AF4F40 /* MemberTests.swift */; };
 		114F74381B423C4900AF4F40 /* SlackTeamCoreDataProxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114F74211B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework */; };
 		114F74391B423C4900AF4F40 /* SlackTeamCoreDataProxy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 114F74211B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		114F74481B423C9D00AF4F40 /* MembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F74421B423C9D00AF4F40 /* MembersViewModel.swift */; };
@@ -29,6 +29,10 @@
 		11770C7D1B424F0C0067099B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7A1B424F0C0067099B /* InterfaceController.swift */; };
 		11770C7E1B424F0C0067099B /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7B1B424F0C0067099B /* DetailInterfaceController.swift */; };
 		11770C7F1B424F0C0067099B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7C1B424F0C0067099B /* TeamCell.swift */; };
+		11CB483B1B42DDE6002DF26F /* members.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CB483A1B42DDE6002DF26F /* members.json */; };
+		11CB483D1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB483C1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift */; };
+		11CB483F1B42E8BC002DF26F /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB483E1B42E8BC002DF26F /* ProfileTests.swift */; };
+		11CB48411B42EBD4002DF26F /* MembersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB48401B42EBD4002DF26F /* MembersViewModelTests.swift */; };
 		11E69A111B41F85F00E59190 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E69A101B41F85F00E59190 /* DetailViewController.swift */; };
 		11EB45541B41C6F200F2FC50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB45531B41C6F200F2FC50 /* AppDelegate.swift */; };
 		11EB45591B41C6F200F2FC50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB45581B41C6F200F2FC50 /* ViewController.swift */; };
@@ -41,6 +45,7 @@
 		3565AC7EAE2F84488EBFE6D7 /* Pods_SlackTeamExplorer_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7638EFBAFEF08382FA7CDDB4 /* Pods_SlackTeamExplorer_WatchKit_Extension.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		81645AD372719A8D29E53375 /* Pods_SlackTeamCoreDataProxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA0358E990825A0895FC7FB /* Pods_SlackTeamCoreDataProxy.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		98A456653B733FC0BE060343 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A84A37A85139EC9110D3B8 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C8FECD1F7776C28EB50206A1 /* Pods_SlackTeamCoreDataProxyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4BA1F66830C76D5138E759 /* Pods_SlackTeamCoreDataProxyTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,7 +140,7 @@
 		114F74251B423C4800AF4F40 /* SlackTeamCoreDataProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlackTeamCoreDataProxy.h; sourceTree = "<group>"; };
 		114F742B1B423C4800AF4F40 /* SlackTeamCoreDataProxyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackTeamCoreDataProxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		114F74331B423C4900AF4F40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		114F74341B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackTeamCoreDataProxyTests.swift; sourceTree = "<group>"; };
+		114F74341B423C4900AF4F40 /* MemberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTests.swift; sourceTree = "<group>"; };
 		114F74421B423C9D00AF4F40 /* MembersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewModel.swift; sourceTree = "<group>"; };
 		114F74441B423C9D00AF4F40 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		114F74451B423C9D00AF4F40 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -147,6 +152,10 @@
 		11770C7A1B424F0C0067099B /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		11770C7B1B424F0C0067099B /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
 		11770C7C1B424F0C0067099B /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		11CB483A1B42DDE6002DF26F /* members.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = members.json; sourceTree = "<group>"; };
+		11CB483C1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackTeamCoredataProxy_Test.swift; sourceTree = "<group>"; };
+		11CB483E1B42E8BC002DF26F /* ProfileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
+		11CB48401B42EBD4002DF26F /* MembersViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewModelTests.swift; sourceTree = "<group>"; };
 		11E69A101B41F85F00E59190 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		11EB454E1B41C6F200F2FC50 /* SlackTeamExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackTeamExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EB45521B41C6F200F2FC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -162,7 +171,10 @@
 		11EB45881B41E90C00F2FC50 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		11EB458B1B41EB1D00F2FC50 /* UIColors_Slack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColors_Slack.swift; sourceTree = "<group>"; };
 		187E178BC270166C65E1094E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1CE1ED726D20606D28B9CF95 /* Pods-SlackTeamCoreDataProxyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackTeamCoreDataProxyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlackTeamCoreDataProxyTests/Pods-SlackTeamCoreDataProxyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2B4BA1F66830C76D5138E759 /* Pods_SlackTeamCoreDataProxyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlackTeamCoreDataProxyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4AE883299C3961E83EDA07 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		475068C5C968AED0C0AFF2F9 /* Pods-SlackTeamCoreDataProxyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackTeamCoreDataProxyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlackTeamCoreDataProxyTests/Pods-SlackTeamCoreDataProxyTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A7907819529A52B6BDCBA9A /* Pods_SlackTeamExplorerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlackTeamExplorerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D91DEEBE05D6C9D24926508 /* Pods-SlackTeamExplorerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackTeamExplorerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlackTeamExplorerTests/Pods-SlackTeamExplorerTests.release.xcconfig"; sourceTree = "<group>"; };
 		6084BDD7020E76B5CB27CEAE /* Pods-SlackTeamExplorer WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackTeamExplorer WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlackTeamExplorer WatchKit Extension/Pods-SlackTeamExplorer WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				114F742C1B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework in Frameworks */,
+				C8FECD1F7776C28EB50206A1 /* Pods_SlackTeamCoreDataProxyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +299,11 @@
 		114F74311B423C4900AF4F40 /* SlackTeamCoreDataProxyTests */ = {
 			isa = PBXGroup;
 			children = (
-				114F74341B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift */,
+				11CB48391B42DDE6002DF26F /* Fixtures */,
+				114F74341B423C4900AF4F40 /* MemberTests.swift */,
+				11CB483E1B42E8BC002DF26F /* ProfileTests.swift */,
+				11CB483C1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift */,
+				11CB48401B42EBD4002DF26F /* MembersViewModelTests.swift */,
 				114F74321B423C4900AF4F40 /* Supporting Files */,
 			);
 			path = SlackTeamCoreDataProxyTests;
@@ -324,6 +341,14 @@
 				114F74471B423C9D00AF4F40 /* SlackAPI.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		11CB48391B42DDE6002DF26F /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				11CB483A1B42DDE6002DF26F /* members.json */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		11EB45451B41C6F200F2FC50 = {
@@ -436,6 +461,7 @@
 				5A7907819529A52B6BDCBA9A /* Pods_SlackTeamExplorerTests.framework */,
 				FEA0358E990825A0895FC7FB /* Pods_SlackTeamCoreDataProxy.framework */,
 				7638EFBAFEF08382FA7CDDB4 /* Pods_SlackTeamExplorer_WatchKit_Extension.framework */,
+				2B4BA1F66830C76D5138E759 /* Pods_SlackTeamCoreDataProxyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -451,6 +477,8 @@
 				D60C041866E06136D113FED7 /* Pods-SlackTeamCoreDataProxy.release.xcconfig */,
 				6084BDD7020E76B5CB27CEAE /* Pods-SlackTeamExplorer WatchKit Extension.debug.xcconfig */,
 				C34EEE146BC883858CB06038 /* Pods-SlackTeamExplorer WatchKit Extension.release.xcconfig */,
+				1CE1ED726D20606D28B9CF95 /* Pods-SlackTeamCoreDataProxyTests.debug.xcconfig */,
+				475068C5C968AED0C0AFF2F9 /* Pods-SlackTeamCoreDataProxyTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -529,9 +557,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 114F743E1B423C4900AF4F40 /* Build configuration list for PBXNativeTarget "SlackTeamCoreDataProxyTests" */;
 			buildPhases = (
+				A53256CAEE386BB205B0039C /* Check Pods Manifest.lock */,
 				114F74271B423C4800AF4F40 /* Sources */,
 				114F74281B423C4800AF4F40 /* Frameworks */,
 				114F74291B423C4800AF4F40 /* Resources */,
+				887893C8B46F16681A001887 /* Embed Pods Frameworks */,
+				BF2239B8D5DC694B5B10E8CA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -689,6 +720,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CB483B1B42DDE6002DF26F /* members.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,7 +850,37 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeamExplorer WatchKit Extension/Pods-SlackTeamExplorer WatchKit Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		887893C8B46F16681A001887 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeamCoreDataProxyTests/Pods-SlackTeamCoreDataProxyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		99E5340B88DE6E8BA7E5724D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A53256CAEE386BB205B0039C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -861,6 +923,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BF2239B8D5DC694B5B10E8CA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeamCoreDataProxyTests/Pods-SlackTeamCoreDataProxyTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F70A5790F9F462E1EDA29190 /* Check Pods Manifest.lock */ = {
@@ -908,7 +985,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				114F74351B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift in Sources */,
+				11CB48411B42EBD4002DF26F /* MembersViewModelTests.swift in Sources */,
+				11CB483F1B42E8BC002DF26F /* ProfileTests.swift in Sources */,
+				114F74351B423C4900AF4F40 /* MemberTests.swift in Sources */,
+				11CB483D1B42E7BB002DF26F /* SlackTeamCoredataProxy_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1134,6 +1214,7 @@
 		};
 		114F743F1B423C4900AF4F40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE1ED726D20606D28B9CF95 /* Pods-SlackTeamCoreDataProxyTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1152,6 +1233,7 @@
 		};
 		114F74401B423C4900AF4F40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 475068C5C968AED0C0AFF2F9 /* Pods-SlackTeamCoreDataProxyTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

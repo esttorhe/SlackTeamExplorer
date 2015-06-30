@@ -13,15 +13,15 @@ import CoreData
 /// Shared framework that abstracts use of CoreData, ViewModels and its Models.
 public class SlackTeamCoreDataProxy: NSObject {
     /// Internal class that holds access to the basic configuration of the shared code.
-    internal class AppConfiguration {
+    public class AppConfiguration {
         /// Reads the prefix from the running bundle.
-        struct Bundle {
-            static var prefix = NSBundle.mainBundle().objectForInfoDictionaryKey("AAPLSlackExplorerBundlePrefix") as! String
+        public struct Bundle {
+            public static var prefix = NSBundle.mainBundle().objectForInfoDictionaryKey("AAPLSlackExplorerBundlePrefix") as! String
         }
         
         /// Appends the required group information to the `Bundle.prefix`
-        struct ApplicationGroups {
-            static let primary = "group.\(Bundle.prefix).SlackExplorer.Data"
+        public struct ApplicationGroups {
+            public static let primary = "group.\(Bundle.prefix).SlackExplorer.Data"
         }
         
         static var DatabaseName: String { get { return "SlackTeamExplorer" } }

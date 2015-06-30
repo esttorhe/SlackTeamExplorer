@@ -59,7 +59,7 @@ public class Profile: NSManagedObject {
     
     - :returns: A fully initialized `Profile` instance with the values read from the `json` provided.
     */
-    static func profileInContext(context: NSManagedObjectContext, json: [NSObject:AnyObject?]) -> Profile? {
+    public static func profileInContext(context: NSManagedObjectContext, json: [NSObject:AnyObject?]) -> Profile? {
         if let profile = NSEntityDescription.insertNewObjectForEntityForName("Profile", inManagedObjectContext: context) as? Profile {
             // Images
             if let image24 = json["image_24"] as? String {

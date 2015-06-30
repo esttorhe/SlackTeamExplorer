@@ -7,6 +7,7 @@ PODS:
   - Moya/Core (1.1.1):
     - Alamofire (~> 1.2.0)
   - Nimble (1.0.0)
+  - OHHTTPStubs (4.0.2)
   - Quick (0.3.1)
   - ReachabilitySwift (1.1)
   - ReactiveCocoa (2.5):
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya (~> 1.1.1)
   - Nimble (~> 1.0.0-final)
+  - OHHTTPStubs (~> 4.0.2)
   - Quick (~> 0.3.1)
   - ReachabilitySwift (~> 1.1)
   - ReactiveViewModel
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   Moya: ee0c8da3abb87f2a46bce384bd42ca13260e690e
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
+  OHHTTPStubs: dbd1957d414659783e07b49c961940b7564c23d9
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   ReachabilitySwift: 1e53abddb01111deac0d229dabdb8bb043567b18
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a

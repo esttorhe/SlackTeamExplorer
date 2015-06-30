@@ -1,0 +1,6 @@
+framework module Pods_SlackTeamCoreDataProxyTests {
+  umbrella header "Pods-SlackTeamCoreDataProxyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
