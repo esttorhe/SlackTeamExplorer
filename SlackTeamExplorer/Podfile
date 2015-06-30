@@ -2,31 +2,38 @@ platform :ios, '8.0'
 inhibit_all_warnings!
 use_frameworks!
 
-def pods
+def core_pods
   pod 'Moya', '~> 1.1.1'
   pod 'ReactiveViewModel'
   pod 'ReachabilitySwift', '~> 1.1'
 end
 
-pods
-pod 'HexColors', '~> 2.2.1'
-pod 'SDWebImage', '~> 3.7.2'
-
-target 'SlackTeamCoreDataProxy' do
-    pods
+def ui_pods
+    pod 'HexColors', '~> 2.2.1'
+    pod 'SDWebImage', '~> 3.7.2'
 end
 
+target 'SlackTeamCoreDataProxy', :exclusive => true do
+    core_pods
+end
+
+core_pods
+ui_pods
+
 target 'SlackTeamExplorer WatchKit Extension', :exclusive => true do
-    pods
+    core_pods
+    pod 'HexColors', '~> 2.2.1'
 end
 
 target 'SlackTeamExplorerTests' do
     pod 'Quick', '~> 0.3.1'
     pod 'Nimble', '~> 1.0.0-final'
+    core_pods
 end
 
 plugin 'cocoapods-keys', {
 	:project => "SlackTeamExplorer",
+    :target => "SlackTeamCoreDataProxy",
 	:keys => [
 	  "SlackToken"
-  ]}
+]}

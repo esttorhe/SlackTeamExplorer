@@ -12,12 +12,6 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 3
 
-// HexColors
-#define COCOAPODS_POD_AVAILABLE_HexColors
-#define COCOAPODS_VERSION_MAJOR_HexColors 2
-#define COCOAPODS_VERSION_MINOR_HexColors 2
-#define COCOAPODS_VERSION_PATCH_HexColors 1
-
 // Keys
 #define COCOAPODS_POD_AVAILABLE_Keys
 #define COCOAPODS_VERSION_MAJOR_Keys 1
@@ -71,16 +65,4 @@
 #define COCOAPODS_VERSION_MAJOR_ReactiveViewModel 0
 #define COCOAPODS_VERSION_MINOR_ReactiveViewModel 3
 #define COCOAPODS_VERSION_PATCH_ReactiveViewModel 0
-
-// SDWebImage
-#define COCOAPODS_POD_AVAILABLE_SDWebImage
-#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
-#define COCOAPODS_VERSION_MINOR_SDWebImage 7
-#define COCOAPODS_VERSION_PATCH_SDWebImage 2
-
-// SDWebImage/Core
-#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
-#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
-#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
-#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 

@@ -49,6 +49,7 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'HexColors.framework'
   install_framework 'Moya.framework'
   install_framework 'ReachabilitySwift.framework'
   install_framework 'ReactiveCocoa.framework'
@@ -56,6 +57,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'HexColors.framework'
   install_framework 'Moya.framework'
   install_framework 'ReachabilitySwift.framework'
   install_framework 'ReactiveCocoa.framework'
