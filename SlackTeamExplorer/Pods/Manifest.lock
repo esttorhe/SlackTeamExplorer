@@ -8,6 +8,7 @@ PODS:
     - Alamofire (~> 1.2.0)
   - Nimble (1.0.0)
   - Quick (0.3.1)
+  - ReachabilitySwift (1.1)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - Moya (~> 1.1.1)
   - Nimble (~> 1.0.0-final)
   - Quick (~> 0.3.1)
+  - ReachabilitySwift (~> 1.1)
   - ReactiveViewModel
   - SDWebImage (~> 3.7.2)
 
@@ -41,6 +43,7 @@ SPEC CHECKSUMS:
   Moya: ee0c8da3abb87f2a46bce384bd42ca13260e690e
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+  ReachabilitySwift: 1e53abddb01111deac0d229dabdb8bb043567b18
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   ReactiveViewModel: 58918dcbcec2d3151195ab1ed9163c57a8163999
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29

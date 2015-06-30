@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_Quick 3
 #define COCOAPODS_VERSION_PATCH_Quick 1
 
+// ReachabilitySwift
+#define COCOAPODS_POD_AVAILABLE_ReachabilitySwift
+#define COCOAPODS_VERSION_MAJOR_ReachabilitySwift 1
+#define COCOAPODS_VERSION_MINOR_ReachabilitySwift 1
+#define COCOAPODS_VERSION_PATCH_ReachabilitySwift 0
+
 // ReactiveCocoa
 #define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
 #define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2

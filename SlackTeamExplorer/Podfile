@@ -10,6 +10,7 @@ end
 
 pods
 pod 'SDWebImage', '~> 3.7.2'
+pod 'ReachabilitySwift', '~> 1.1'
 
 target 'SlackTeamExplorerTests' do
     pod 'Quick', '~> 0.3.1'

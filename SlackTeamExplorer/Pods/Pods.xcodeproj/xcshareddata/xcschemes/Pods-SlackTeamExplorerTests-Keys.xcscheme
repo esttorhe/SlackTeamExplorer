@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "523DBD2188970585AF7C249D"
+               BlueprintIdentifier = "11448A68F48F17A896A6BA59"
                BuildableName = "Keys.framework"
                BlueprintName = "Pods-SlackTeamExplorerTests-Keys"
                ReferencedContainer = "container:Pods.xcodeproj">
