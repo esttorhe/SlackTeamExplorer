@@ -4,13 +4,21 @@ use_frameworks!
 
 def pods
   pod 'Moya', '~> 1.1.1'
-  pod 'HexColors', '~> 2.2.1'
   pod 'ReactiveViewModel'
+  pod 'ReachabilitySwift', '~> 1.1'
 end
 
 pods
+pod 'HexColors', '~> 2.2.1'
 pod 'SDWebImage', '~> 3.7.2'
-pod 'ReachabilitySwift', '~> 1.1'
+
+target 'SlackTeamCoreDataProxy' do
+    pods
+end
+
+target 'SlackTeamExplorer WatchKit Extension', :exclusive => true do
+    pods
+end
 
 target 'SlackTeamExplorerTests' do
     pod 'Quick', '~> 0.3.1'

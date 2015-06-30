@@ -1,0 +1,6 @@
+framework module Moya {
+  umbrella header "Pods-SlackTeamExplorer WatchKit Extension-Moya-umbrella.h"
+
+  export *
+  module * { export * }
+}
