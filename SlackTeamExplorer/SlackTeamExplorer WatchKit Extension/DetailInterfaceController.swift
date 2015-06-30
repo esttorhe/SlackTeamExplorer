@@ -16,6 +16,7 @@ import SlackTeamCoreDataProxy
 
 // Pods
 import ReactiveCocoa
+import HexColors
 
 class DetailInterfaceController: WKInterfaceController {
     
@@ -46,6 +47,13 @@ class DetailInterfaceController: WKInterfaceController {
                     
                     if let imageURL = profile.image192 {
                         ImageLoader.loadImage(imageURL, forImageView: self.avatarImageView)
+                    }
+                    
+                    if let strColor = member.color,
+                        color = UIColor(hexString: strColor) {
+                            self.usernameLabel.setTextColor(color)
+                            self.realNameLabel.setTextColor(color)
+                            self.titleLabel.setTextColor(color)
                     }
                 }
             }

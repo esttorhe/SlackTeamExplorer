@@ -63,46 +63,48 @@ class DetailViewController: UIViewController {
         
         // Check if there's a valid member
         if let viewModel = self.memberViewModel {
-            updateContentSignalDisposable = viewModel.updateContentSignal.deliverOnMainThread().subscribeNext { [unowned self] member in
-                self.usernameLabel.text = "@\(member.name)"
-                self.title = member.name
-                
-                // Unwrap the member color
-//                if let strColor = member.color,
-//                    color = UIColor(hexString: strColor) {
-//                        self.contentScrollView.backgroundColor = color.colorWithAlphaComponent(0.3)
-//                }
-                
-                // Unwrap the profile
-                if let profile = member.profile! {
-                    if let realname = profile.realNameNormalized {
-                        self.fullNameLabel.text = realname
+            updateContentSignalDisposable = viewModel.updateContentSignal.deliverOnMainThread().subscribeNext { [unowned self] memb in
+                if let member = memb as? Member {
+                    self.usernameLabel.text = "@\(member.name)"
+                    self.title = member.name
+                    
+                    // Unwrap the member color
+                    if let strColor = member.color,
+                        color = UIColor(hexString: strColor) {
+                            self.contentScrollView.backgroundColor = color.colorWithAlphaComponent(0.3)
                     }
                     
-                    if let title = profile.title {
-                        self.titleLabel.text = title
-                    }
-                    
-                    if let imageURL = profile.image192, url = NSURL(string: imageURL) {
-                        self.avatarImageView.sd_setImageWithURL(url, placeholderImage: nil) { (image, error, cacheType, url) in
-                            if let img = image {
-                                self.avatarImageView.image = img
-                            } else if let fburl = profile.fallBackImageURL {
-                                self.avatarImageView.sd_setImageWithURL(fburl)
+                    // Unwrap the profile
+                    if let profile = member.profile {
+                        if let realname = profile.realNameNormalized {
+                            self.fullNameLabel.text = realname
+                        }
+                        
+                        if let title = profile.title {
+                            self.titleLabel.text = title
+                        }
+                        
+                        if let imageURL = profile.image192, url = NSURL(string: imageURL) {
+                            self.avatarImageView.sd_setImageWithURL(url, placeholderImage: nil) { (image, error, cacheType, url) in
+                                if let img = image {
+                                    self.avatarImageView.image = img
+                                } else if let fburl = profile.fallBackImageURL {
+                                    self.avatarImageView.sd_setImageWithURL(fburl)
+                                }
                             }
                         }
-                    }
-                    
-                    if let phone = profile.phone {
-                        self.phoneLabel.text = "• ☎\t\(phone)"
-                    }
-                    
-                    if let email = profile.email {
-                        self.emailLabel.text = "• ✉\t\(email)"
-                    }
-                    
-                    if let skype = profile.skype {
-                        self.skypeLabel.text = "• 💻\t\(skype)"
+                        
+                        if let phone = profile.phone {
+                            self.phoneLabel.text = "• ☎\t\(phone)"
+                        }
+                        
+                        if let email = profile.email {
+                            self.emailLabel.text = "• ✉\t\(email)"
+                        }
+                        
+                        if let skype = profile.skype {
+                            self.skypeLabel.text = "• 💻\t\(skype)"
+                        }
                     }
                 }
             }

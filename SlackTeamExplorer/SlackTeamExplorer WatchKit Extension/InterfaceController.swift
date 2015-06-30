@@ -17,6 +17,7 @@ import SlackTeamCoreDataProxy
 import ReactiveViewModel
 import ReactiveCocoa
 import ReachabilitySwift
+import HexColors
 
 public struct ImageLoader {
     internal class ImageOperation: NSOperation {
@@ -88,6 +89,11 @@ class InterfaceController: WKInterfaceController {
                 for (index, member) in enumerate(members) {
                     let row = self.table.rowControllerAtIndex(index) as! RowTableRowController
                     row.label.setText(member.name)
+                    
+                    if let strColor = member.color,
+                        color = UIColor(hexString: strColor) {
+                            row.label.setTextColor(color)
+                    }
                 }
             } else {
                 self.table.setHidden(true)
