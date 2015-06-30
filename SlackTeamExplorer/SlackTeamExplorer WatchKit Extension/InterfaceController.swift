@@ -79,7 +79,7 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         self.membersViewModel.loadFromDBOnly = true
-        self.membersViewModel.updateContentSignal.deliverOnMainThread().subscribeNext { membs in
+        self.membersViewModel.updateContentSignal.deliverOnMainThread().subscribeNext( { membs in
             if let members = membs as? [Member]
             where members.count > 0 {
                 self.table.setHidden(false)
@@ -96,10 +96,11 @@ class InterfaceController: WKInterfaceController {
                     }
                 }
             } else {
-                self.table.setHidden(true)
-                self.warningGroup.setHidden(false)
+                self.showErrorMessage()
             }
-        }
+        }, error: { _ in
+                self.showErrorMessage()
+        })
         
         self.membersViewModel.active = true
     }
@@ -111,5 +112,14 @@ class InterfaceController: WKInterfaceController {
 
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
         return self.membersViewModel.memberAtIndexPath(NSIndexPath(forItem: rowIndex, inSection: 0)).objectID
+    }
+    
+    // MARK: - Internal Helpers
+    
+    internal func showErrorMessage() {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.table.setHidden(true)
+            self.warningGroup.setHidden(false)
+        }
     }
 }

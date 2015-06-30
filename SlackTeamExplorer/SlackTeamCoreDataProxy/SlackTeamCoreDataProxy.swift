@@ -11,14 +11,23 @@ import Foundation
 import CoreData
 
 public class SlackTeamCoreDataProxy: NSObject {
-    let sharedAppGroup:String = "group.SlackTeamExplorer"
-    let database = "SlackTeamExplorer"
+    internal class AppConfiguration {
+        struct Bundle {
+            static var prefix = NSBundle.mainBundle().objectForInfoDictionaryKey("AAPLSlackExplorerBundlePrefix") as! String
+        }
+        
+        struct ApplicationGroups {
+            static let primary = "group.\(Bundle.prefix).SlackExplorer.Data"
+        }
+        
+        static var DatabaseName: String { get { return "SlackTeamExplorer" } }
+    }
     
     public lazy var managedObjectModel: NSManagedObjectModel = {
-        let proxyBundle = NSBundle(identifier: "es.estebantorr.SlackTeamCoreDataProxy")
+        let proxyBundle = NSBundle(identifier: "\(AppConfiguration.Bundle.prefix).SlackTeamCoreDataProxy")
         
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = proxyBundle?.URLForResource(self.database, withExtension: "momd")!
+        let modelURL = proxyBundle?.URLForResource(AppConfiguration.DatabaseName, withExtension: "momd")!
         
         return NSManagedObjectModel(contentsOfURL: modelURL!)!
         }()
@@ -28,9 +37,9 @@ public class SlackTeamCoreDataProxy: NSObject {
         
         var error: NSError? = nil
         
-        var sharedContainerURL: NSURL? = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(self.sharedAppGroup)
+        var sharedContainerURL: NSURL? = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(AppConfiguration.ApplicationGroups.primary)
         if let sharedContainerURL = sharedContainerURL {
-            let storeURL = sharedContainerURL.URLByAppendingPathComponent("\(self.database).sqlite")
+            let storeURL = sharedContainerURL.URLByAppendingPathComponent("\(AppConfiguration.DatabaseName).sqlite")
             var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
             if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil {
                 // error handling goes here

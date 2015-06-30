@@ -250,7 +250,6 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
-                                        <exclude reference="GSr-g6-zcR"/>
                                         <exclude reference="1oL-wh-xcI"/>
                                         <exclude reference="2e3-b1-d46"/>
                                         <include reference="NeI-aN-3Tg"/>
@@ -271,6 +270,7 @@
                                         <exclude reference="cHr-Sb-eAo"/>
                                         <include reference="jdh-Kg-q7g"/>
                                         <include reference="oi2-tX-4oT"/>
+                                        <exclude reference="GSr-g6-zcR"/>
                                     </mask>
                                 </variation>
                             </scrollView>

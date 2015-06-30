@@ -11,7 +11,6 @@
 		114F74051B423A4100AF4F40 /* SlackTeamExplorer WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 114F74041B423A4100AF4F40 /* SlackTeamExplorer WatchKit App.app */; };
 		114F740D1B423A4100AF4F40 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F740B1B423A4100AF4F40 /* Interface.storyboard */; };
 		114F740F1B423A4100AF4F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114F740E1B423A4100AF4F40 /* Images.xcassets */; };
-		114F74131B423A4100AF4F40 /* SlackTeamExplorer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 114F73FA1B423A4100AF4F40 /* SlackTeamExplorer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		114F74261B423C4800AF4F40 /* SlackTeamCoreDataProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 114F74251B423C4800AF4F40 /* SlackTeamCoreDataProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		114F742C1B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114F74211B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework */; };
 		114F74351B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F74341B423C4900AF4F40 /* SlackTeamCoreDataProxyTests.swift */; };
@@ -24,6 +23,9 @@
 		114F744E1B423DC100AF4F40 /* SlackTeamCoreDataProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F744D1B423DC100AF4F40 /* SlackTeamCoreDataProxy.swift */; };
 		114F74531B42435300AF4F40 /* SlackTeamExplorer.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 114F74501B423E7E00AF4F40 /* SlackTeamExplorer.xcdatamodeld */; };
 		114F74551B4243DA00AF4F40 /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F74541B4243DA00AF4F40 /* MemberViewModel.swift */; };
+		115870191B42BE0C00A35C4C /* SlackTeamExplorer WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 114F74041B423A4100AF4F40 /* SlackTeamExplorer WatchKit App.app */; };
+		1158701D1B42BE1600A35C4C /* SlackTeamExplorer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 114F73FA1B423A4100AF4F40 /* SlackTeamExplorer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		115870211B42BF1200A35C4C /* SlackTeamCoreDataProxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114F74211B423C4800AF4F40 /* SlackTeamCoreDataProxy.framework */; };
 		11770C7D1B424F0C0067099B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7A1B424F0C0067099B /* InterfaceController.swift */; };
 		11770C7E1B424F0C0067099B /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7B1B424F0C0067099B /* DetailInterfaceController.swift */; };
 		11770C7F1B424F0C0067099B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11770C7C1B424F0C0067099B /* TeamCell.swift */; };
@@ -49,13 +51,6 @@
 			remoteGlobalIDString = 114F74031B423A4100AF4F40;
 			remoteInfo = "SlackTeamExplorer WatchKit App";
 		};
-		114F74101B423A4100AF4F40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 11EB45461B41C6F200F2FC50 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 114F73F91B423A4100AF4F40;
-			remoteInfo = "SlackTeamExplorer WatchKit Extension";
-		};
 		114F742D1B423C4800AF4F40 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 11EB45461B41C6F200F2FC50 /* Project object */;
@@ -77,6 +72,20 @@
 			remoteGlobalIDString = 114F74201B423C4800AF4F40;
 			remoteInfo = SlackTeamCoreDataProxy;
 		};
+		1158701A1B42BE0C00A35C4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11EB45461B41C6F200F2FC50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 114F74031B423A4100AF4F40;
+			remoteInfo = "SlackTeamExplorer WatchKit App";
+		};
+		1158701E1B42BE1600A35C4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11EB45461B41C6F200F2FC50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 114F73F91B423A4100AF4F40;
+			remoteInfo = "SlackTeamExplorer WatchKit Extension";
+		};
 		11EB45671B41C6F200F2FC50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 11EB45461B41C6F200F2FC50 /* Project object */;
@@ -87,17 +96,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		114F74121B423A4100AF4F40 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				114F74131B423A4100AF4F40 /* SlackTeamExplorer WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		114F743D1B423C4900AF4F40 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +105,17 @@
 				114F74391B423C4900AF4F40 /* SlackTeamCoreDataProxy.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		115870201B42BE1700A35C4C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1158701D1B42BE1600A35C4C /* SlackTeamExplorer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -171,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115870211B42BF1200A35C4C /* SlackTeamCoreDataProxy.framework in Frameworks */,
 				3565AC7EAE2F84488EBFE6D7 /* Pods_SlackTeamExplorer_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,12 +225,12 @@
 			isa = PBXGroup;
 			children = (
 				114F741B1B423B8B00AF4F40 /* SlackTeamExplorer WatchKit Extension.entitlements */,
+				11770C791B424F0B0067099B /* SlackTeamExplorer WatchKit Extension-Bridging-Header.h */,
 				11770C7A1B424F0C0067099B /* InterfaceController.swift */,
 				11770C7B1B424F0C0067099B /* DetailInterfaceController.swift */,
 				11770C7C1B424F0C0067099B /* TeamCell.swift */,
 				114F74001B423A4100AF4F40 /* Images.xcassets */,
 				114F73FC1B423A4100AF4F40 /* Supporting Files */,
-				11770C791B424F0B0067099B /* SlackTeamExplorer WatchKit Extension-Bridging-Header.h */,
 			);
 			path = "SlackTeamExplorer WatchKit Extension";
 			sourceTree = "<group>";
@@ -504,6 +514,7 @@
 				114F741E1B423C4800AF4F40 /* Headers */,
 				114F741F1B423C4800AF4F40 /* Resources */,
 				B15DC2F8E6ED5D7C088B6CF8 /* Copy Pods Resources */,
+				115870221B42C5BB00A35C4C /* Embed Pod Frameworks */,
 			);
 			buildRules = (
 			);
@@ -540,17 +551,18 @@
 				11EB458D1B41EBE300F2FC50 /* Check Pods Manifest.lock */,
 				11EB454A1B41C6F200F2FC50 /* Sources */,
 				11EB454B1B41C6F200F2FC50 /* Frameworks */,
+				115870201B42BE1700A35C4C /* Embed App Extensions */,
+				114F743D1B423C4900AF4F40 /* Embed Frameworks */,
 				11EB454C1B41C6F200F2FC50 /* Resources */,
 				11EB458E1B41EC0700F2FC50 /* Embed Pods Frameworks */,
 				11EB458F1B41EC1900F2FC50 /* Copy Pods Resources */,
-				114F74121B423A4100AF4F40 /* Embed App Extensions */,
-				114F743D1B423C4900AF4F40 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				114F74111B423A4100AF4F40 /* PBXTargetDependency */,
 				114F74371B423C4900AF4F40 /* PBXTargetDependency */,
+				1158701B1B42BE0C00A35C4C /* PBXTargetDependency */,
+				1158701F1B42BE1600A35C4C /* PBXTargetDependency */,
 			);
 			name = SlackTeamExplorer;
 			productName = SlackTeamExplorer;
@@ -687,6 +699,7 @@
 				11EB455C1B41C6F200F2FC50 /* Main.storyboard in Resources */,
 				11EB45611B41C6F200F2FC50 /* LaunchScreen.xib in Resources */,
 				11EB455E1B41C6F200F2FC50 /* Images.xcassets in Resources */,
+				115870191B42BE0C00A35C4C /* SlackTeamExplorer WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +726,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeamExplorerTests/Pods-SlackTeamExplorerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		115870221B42C5BB00A35C4C /* Embed Pod Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pod Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeamCoreDataProxy/Pods-SlackTeamCoreDataProxy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		11EB458D1B41EBE300F2FC50 /* Check Pods Manifest.lock */ = {
@@ -911,11 +939,6 @@
 			target = 114F74031B423A4100AF4F40 /* SlackTeamExplorer WatchKit App */;
 			targetProxy = 114F74061B423A4100AF4F40 /* PBXContainerItemProxy */;
 		};
-		114F74111B423A4100AF4F40 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 114F73F91B423A4100AF4F40 /* SlackTeamExplorer WatchKit Extension */;
-			targetProxy = 114F74101B423A4100AF4F40 /* PBXContainerItemProxy */;
-		};
 		114F742E1B423C4800AF4F40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 114F74201B423C4800AF4F40 /* SlackTeamCoreDataProxy */;
@@ -930,6 +953,16 @@
 			isa = PBXTargetDependency;
 			target = 114F74201B423C4800AF4F40 /* SlackTeamCoreDataProxy */;
 			targetProxy = 114F74361B423C4900AF4F40 /* PBXContainerItemProxy */;
+		};
+		1158701B1B42BE0C00A35C4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 114F74031B423A4100AF4F40 /* SlackTeamExplorer WatchKit App */;
+			targetProxy = 1158701A1B42BE0C00A35C4C /* PBXContainerItemProxy */;
+		};
+		1158701F1B42BE1600A35C4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 114F73F91B423A4100AF4F40 /* SlackTeamExplorer WatchKit Extension */;
+			targetProxy = 1158701E1B42BE1600A35C4C /* PBXContainerItemProxy */;
 		};
 		11EB45681B41C6F200F2FC50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -980,9 +1013,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SlackTeamExplorer WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SlackTeamExplorer WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.SlackTeamExplorer.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -999,9 +1033,10 @@
 				CODE_SIGN_ENTITLEMENTS = "SlackTeamExplorer WatchKit Extension/SlackTeamExplorer WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "SlackTeamExplorer WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SlackTeamExplorer WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.SlackTeamExplorer.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -1014,13 +1049,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				IBSC_MODULE = SlackTeamExplorer_WatchKit_Extension;
-				INFOPLIST_FILE = "SlackTeamExplorer WatchKit App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SlackTeamExplorer WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.SlackTeamExplorer.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1033,9 +1070,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				IBSC_MODULE = SlackTeamExplorer_WatchKit_Extension;
-				INFOPLIST_FILE = "SlackTeamExplorer WatchKit App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SlackTeamExplorer WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.SlackTeamExplorer.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1062,6 +1101,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1084,6 +1124,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1163,6 +1204,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SLACKEXPLORER_BUNDLE_PREFIX = es.estebantorr.SlackTeamExplorer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1201,6 +1243,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SLACKEXPLORER_BUNDLE_PREFIX = es.estebantorr.SlackTeamExplorer;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1217,6 +1260,7 @@
 				INFOPLIST_FILE = "SlackTeamExplorer/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1233,6 +1277,7 @@
 				INFOPLIST_FILE = "SlackTeamExplorer/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1254,6 +1299,7 @@
 				);
 				INFOPLIST_FILE = "SlackTeamExplorerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlackTeamExplorer.app/SlackTeamExplorer";
 			};
@@ -1271,6 +1317,7 @@
 				);
 				INFOPLIST_FILE = "SlackTeamExplorerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${SLACKEXPLORER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlackTeamExplorer.app/SlackTeamExplorer";
 			};
