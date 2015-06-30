@@ -2,7 +2,16 @@
 Explore Slack's teams (list all users and their basic profiles).
 
 ## Running the project
-The project uses [`CocoaPods`][cocoapods] and [`Bundler`][bundler] but comes «fully» configure (save some [caveats][caveats]).
+
+This project comes preconfigured except for the [«Entitlements»][caveats] setup required.
+
+---
+Please follow the [«Finishing Touches»][caveats] section before trying to run the project.
+---
+
+
+### Notice
+The project uses [`CocoaPods`][cocoapods] and [`Bundler`][bundler] but comes «fully» configured (save some [caveats][caveats]).
 
 For the sake's of simplicity the «Pods» folder was pushed as well as the «vendor» from [`Bundler`][bundler] (but I strongly recommend against this).
 
