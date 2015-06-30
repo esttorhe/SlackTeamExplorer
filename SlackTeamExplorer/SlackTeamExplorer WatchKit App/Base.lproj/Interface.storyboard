@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FPD-K8-pCr">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Members-->
+        <scene sceneID="E6i-1L-EOX">
+            <objects>
+                <controller title="Members" id="FPD-K8-pCr" customClass="InterfaceController" customModule="SlackTeamExplorer_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="Qwa-hy-9ln">
+                            <items>
+                                <tableRow identifier="RowTableRowController" id="vGC-D9-l14" customClass="RowTableRowController" customModule="SlackTeamExplorer_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="BtN-0L-SeF">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Label" id="FoE-aW-Kcj"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="label" destination="FoE-aW-Kcj" id="W0v-k0-3fb"/>
+                                        <segue destination="g1r-5a-tpP" kind="push" id="4wV-AE-aWz"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <group width="1" alignment="left" hidden="YES" layout="vertical" id="Nbv-ae-Vse">
+                            <items>
+                                <group width="1" alignment="left" id="L9f-dJ-mvC"/>
+                                <separator alignment="center" id="BUl-kn-QN9"/>
+                                <label alignment="center" verticalAlignment="center" text="Open the app on your phone first; then come back" numberOfLines="0" id="IgA-MR-U8r"/>
+                                <separator alignment="center" verticalAlignment="bottom" id="4dk-Qv-tIk"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="Qwa-hy-9ln" id="IqP-jw-Rdv"/>
+                        <outlet property="warningGroup" destination="Nbv-ae-Vse" id="ltV-0s-JxK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Detail Interface Controller-->
+        <scene sceneID="Wbx-Ll-aLa">
+            <objects>
+                <controller id="g1r-5a-tpP" customClass="DetailInterfaceController" customModule="SlackTeamExplorer_WatchKit_Extension">
+                    <items>
+                        <separator alignment="left" id="zv1-wG-Du6"/>
+                        <label alignment="center" text="Label" id="adx-2I-Ie4"/>
+                        <separator alignment="left" id="zek-9L-Hxs"/>
+                        <group width="100" height="100" alignment="center" radius="50" id="kTq-rk-2yr">
+                            <items>
+                                <imageView width="1" height="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFill" animationDuration="1" id="ti0-kl-oS2"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="7ci-ky-Fel"/>
+                        <label alignment="center" text="Label" id="oF9-8p-FZG"/>
+                        <label alignment="center" textAlignment="center" numberOfLines="0" id="cm6-1i-Y0S"/>
+                        <separator alignment="left" id="cuq-ug-btm"/>
+                    </items>
+                    <connections>
+                        <outlet property="avatarImageView" destination="ti0-kl-oS2" id="fKL-Z5-uRK"/>
+                        <outlet property="realNameLabel" destination="oF9-8p-FZG" id="qYe-YB-hOb"/>
+                        <outlet property="titleLabel" destination="cm6-1i-Y0S" id="0Sl-m9-2Y2"/>
+                        <outlet property="usernameLabel" destination="adx-2I-Ie4" id="t4Q-yL-8BN"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="432" y="345"/>
+        </scene>
+    </scenes>
+</document>
