@@ -27,21 +27,36 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var skypeLabel: UILabel!
+    @IBOutlet weak var contentScrollView: UIScrollView!
+    @IBOutlet weak var avatarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var usernameTopConstraint: NSLayoutConstraint!
     
     override func viewWillLayoutSubviews() {
+        self.configureAvatarImageView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Configure UI
         self.configureAvatarImageView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure UI
-        self.configureAvatarImageView()
+        self.contentScrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         // Check if there's a valid member
         if let member = self.member {
             usernameLabel.text = "@\(member.name)"
             self.title = member.name
+            
+            // Unwrap the member color
+            if let strColor = member.color,
+                color = UIColor(hexString: strColor) {
+                    self.contentScrollView.backgroundColor = color.colorWithAlphaComponent(0.3)
+            }
             
             // Unwrap the profile
             if let profile = member.profile {
@@ -64,15 +79,15 @@ class DetailViewController: UIViewController {
                 }
                 
                 if let phone = profile.phone {
-                    phoneLabel.text = "☎ \(phone)"
+                    phoneLabel.text = "• ☎\t\(phone)"
                 }
                 
                 if let email = profile.email {
-                    emailLabel.text = "✉ \(email)"
+                    emailLabel.text = "• ✉\t\(email)"
                 }
                 
                 if let skype = profile.skype {
-                    skypeLabel.text = "💻 \(skype)"
+                    skypeLabel.text = "• 💻\t\(skype)"
                 }
             }
         }
@@ -82,11 +97,23 @@ class DetailViewController: UIViewController {
     
     internal func configureAvatarImageView(duration:NSTimeInterval = 0.5) {
         self.avatarImageView.layoutIfNeeded()
-        UIView.animateWithDuration(duration) {
-            self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.bounds) / 2.0
-            self.avatarImageView.layer.masksToBounds = true
-            self.avatarImageView.layer.borderColor = UIColor.slackLightGreyColor().CGColor
-            self.avatarImageView.layer.borderWidth = 2.0
+        self.headerImageView.layoutIfNeeded()
+        self.view.layoutIfNeeded()
+        
+        self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.bounds) / 2.0
+        self.avatarImageView.layer.masksToBounds = true
+        self.avatarImageView.layer.borderColor = UIColor.slackLightGreyColor().CGColor
+        self.avatarImageView.layer.borderWidth = 2.0
+        
+        if let avatarConstraint = self.avatarTopConstraint
+        where CGRectGetHeight(self.view.bounds) < 1000 {
+            let imageHeight = CGRectGetHeight(self.avatarImageView.bounds)
+            let headerMaxY = CGRectGetMaxY(self.headerImageView.bounds)
+            
+            avatarConstraint.constant = imageHeight > headerMaxY ? 10.0 : (headerMaxY - imageHeight)
+            
+            avatarImageView.layoutIfNeeded()
+//            self.usernameTopConstraint.constant = CGRectGetHeight(self.avatarImageView.frame)/3.0 + 25.0
         }
     }
 }

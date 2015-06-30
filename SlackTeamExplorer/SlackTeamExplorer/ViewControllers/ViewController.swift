@@ -58,6 +58,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         membersViewModel.active = true
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -111,13 +116,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
-    override func viewWillLayoutSubviews() {
+    override func didRotateFromInterfaceOrientation(_: UIInterfaceOrientation) {
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
     // MARK: - Collection View Flow Layout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        collectionView.layoutIfNeeded()
         return CGSizeMake(CGRectGetWidth(collectionView.bounds) - 30.0, 81.0)
     }
     
