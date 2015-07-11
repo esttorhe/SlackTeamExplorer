@@ -45,7 +45,7 @@ extension Slack : MoyaTarget {
     public var parameters: [String: AnyObject] {
         switch self {
         case .TeamUsersList:
-            let keys = SlackTeamExplorerKeys()
+            let keys = SlackteamexplorerKeys()
             
             return ["token": keys.slackToken()]
         default:

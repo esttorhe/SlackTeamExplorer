@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39100EB401CF00875C455165"
+               BlueprintIdentifier = "B8EB24FD9A1CEBD6DA9FB293"
                BuildableName = "Keys.framework"
                BlueprintName = "Pods-SlackTeamCoreDataProxy-Keys"
                ReferencedContainer = "container:Pods.xcodeproj">
